@@ -3,6 +3,8 @@ Domoticz Sound Detection
 
 App to detect sudden noises above ambient from an audio stream and trigger a switch in a locally installed and running Domoticz service. 
 
+It uses my sound detection library at https://github.com/bazwilliams/sound-detection
+
 # Installation
 
 ```bash
