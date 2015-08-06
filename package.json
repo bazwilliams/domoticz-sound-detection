@@ -1,6 +1,6 @@
 {
   "name": "domoticz-sound-detection",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "App to detect sudden noises above ambient from an audio stream and trigger a switch in Domoticz service. ",
   "author": "Barry John Williams <barry@bjw.me.uk>",
   "readme": "README.md",
@@ -12,6 +12,9 @@
   "dependencies": {
     "commander": "^2.8.1",
     "sound-detection": "^0.0.3"
+  },
+  "bin": {
+    "domoticz-sound-detection": "./app.js"
   },
   "devDependencies": {},
   "scripts": {
