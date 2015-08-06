@@ -5,7 +5,9 @@ App to detect sudden noises above ambient from an audio stream and trigger a swi
 
 # Installation
 
+```bash
 npm install -g domoticz-sound-detection
+```
 
 # Running
 
