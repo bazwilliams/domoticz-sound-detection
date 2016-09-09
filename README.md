@@ -13,15 +13,15 @@ It uses my sound detection library at https://github.com/bazwilliams/sound-detec
 docker run -d --restart=always -e DOMOTICZ_ROOT=<DOMOTICZ_ROOT> -e DOMOTICZ_IDX=<DOMOTICZ_SWITCH> -e AUDIO_URL=<CAMERA_AUDIO_FEED> bazwilliams/domoticz-sound-detection
 ```
 
-DOMOTICZ_ROOT - Where you access Domoticz e.g. `http://localhost:8080`
-DOMOTICZ_IDX - The IDX number of the switch to toggle
-CAMERA_AUDIO_FEED - the feed for the camera, e.g. `http://camera/audio.cgi`
+* `DOMOTICZ_ROOT` - Where you access Domoticz e.g. `http://localhost:8080`
+* `DOMOTICZ_IDX` - The IDX number of the switch to toggle
+* `CAMERA_AUDIO_FEED` - the feed for the camera, e.g. `http://camera/audio.cgi`
 
 The following variables can also be set as environment variables and map to their equivalent command line option.
 
-BITDEPTH
-CHANNELS
-TRIGGERLEVEL
+* `BITDEPTH`
+* `CHANNELS`
+* `TRIGGERLEVEL`
 
 # Installation
 
