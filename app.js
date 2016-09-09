@@ -14,16 +14,19 @@ program
     .parse(process.argv);
 
 var options = {
-    url: program.url,
+    url: program.url || process.env.AUDIO_URL,
     format: {
-        bitDepth: program.bitDepth || 16,
-        numberOfChannels: program.channels || 1,
+        bitDepth: program.bitDepth || process.env.BITDEPTH || 16,
+        numberOfChannels: program.channels || process.env.CHANNELS || 1,
         signed: true
     },
-    triggerLevel: program.triggerLevel || 30
+    triggerLevel: program.triggerLevel || process.env.TRIGGERLEVEL || 30
 }
 
-if (!(program.url && program.idx)) {
+var domoticzRoot = process.env.DOMOTICZ_ROOT || "http://localhost:8080";
+var idx = program.idx || process.env.DOMOTICZ_IDX;
+
+if (!(options.url && idx)) {
     program.outputHelp();
     process.exit(1);
 }
@@ -31,11 +34,11 @@ if (!(program.url && program.idx)) {
 var timeout = void 0;
 
 function setNoiseSensor() {
-    http.get('http://localhost:8080/json.htm?type=command&param=switchlight&idx=' + program.idx + '&switchcmd=On');
+    http.get(`${domoticzRoot}/json.htm?type=command&param=switchlight&idx=${idx}&switchcmd=On`);
 }
 
 function clearNoiseSensor() {
-    http.get('http://localhost:8080/json.htm?type=command&param=switchlight&idx=' + program.idx + '&switchcmd=Off');
+    http.get(`${domoticzRoot}/json.htm?type=command&param=switchlight&idx=${idx}&switchcmd=Off`);
     timeout = void 0;
 }
 
